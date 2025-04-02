@@ -1,0 +1,36 @@
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main() {
+    srand(time(NULL));
+    int num;
+    cout << "Please give a number" << endl;
+    cin >> num;
+
+    ofstream outfile("C:/Users/753938/source/repos/4.2 daily code Beep/4.2 daily code Beep/notes.txt");
+
+    if (!outfile) {
+        cout << "Error: Could not create notes.txt" << endl;
+        return 1;
+    }
+
+    for (int i = 0; i < num; i++) {
+        int freq = rand() % 700 + 300;
+        int dur = rand() % 700 + 300;
+        outfile << freq << " " << dur << endl;
+    }
+
+    cout << "notes.txt has been created with " << num << " random notes." << endl;
+    outfile.close();
+
+    return 0;
+
+
+
+
+
+
+}
